@@ -1,0 +1,315 @@
+<!-- BEGIN form -->
+<style type="text/css">
+<!--
+.tbl_blk  { background-color: #CCCCCC; }
+.cal_td { font-family:Tahoma; font-size:11px; background-color: #FFFFFF; width: 16px; height: 13px; }
+#cal_days { background-color: #F7F7F7; text-align:center; }
+#cal_hday { background-color: #F1F6F9; }
+#cal_nav { background-color: #D8D8D8; padding:3px; }
+-->
+</style>
+<script language="javascript">
+<!--
+var targetDate = new Date();
+var calName;
+var formName;
+
+function setCalendar(event, f, name) {
+	var el, tableEl, rowEl, cellEl, linkEl;
+	var tmpDate, tmpDate2;
+	var i, j;
+
+	if (f == null) { f=1; }
+
+	el = document.getElementById("calendarHeader_" + name).firstChild;
+	el.nodeValue = targetDate.getMonthName() + "\u00a0" + targetDate.getFullYear();
+
+	tmpDate = new Date(Date.parse(targetDate));
+	tmpDate.setDate(1);
+
+	while (tmpDate.getDay() != 0) { tmpDate.addDays(-1); }
+
+	tableEl = document.getElementById('calendar_' + name);
+
+	for (i = 0; i <= 5; i++) {
+    rowEl = tableEl.rows[i];
+
+    tmpDate2 = new Date(Date.parse(tmpDate));
+    tmpDate2.addDays(6);
+    if (tmpDate.getMonth()  != targetDate.getMonth() &&
+        tmpDate2.getMonth() != targetDate.getMonth()) {
+      rowEl.style.visibility = "hidden";
+      if (document.all)
+        for (j = 0; j < rowEl.cells.length; j++)
+          rowEl.cells[j].style.borderStyle = "none";
+    }
+    else {
+		rowEl.style.visibility = "";
+		if (document.all)
+			for (j = 0; j < rowEl.cells.length; j++)
+				rowEl.cells[j].style.borderStyle = "";
+    }
+
+    for (j = 0; j < rowEl.cells.length; j++) {
+      cellEl = rowEl.cells[j];
+      linkEl = cellEl.firstChild;
+
+      if (tmpDate.getMonth() == targetDate.getMonth()) {
+        linkEl.date = new Date(Date.parse(tmpDate));
+        s = tmpDate.toString().split(" ");
+        linkEl.title = s[0] + " " + s[1] + " " + s[2] + ", " + s[s.length - 1];
+        linkEl.firstChild.nodeValue = tmpDate.getDate();
+        linkEl.style.visibility = "";
+      } else {
+        linkEl.style.visibility = "hidden";
+	 }
+
+      if (cellEl.oldClass == null)
+        cellEl.oldClass = cellEl.className;
+
+//      if ((Date.parse(tmpDate) == Date.parse(targetDate)) && (f == 1))
+//	      cellEl.className = cellEl.oldClass; //  + " kalactive"
+//      else
+		cellEl.className = cellEl.oldClass;
+
+		tmpDate.addDays(1);
+    }
+  }
+}
+
+function addMonths(event, n, name) {
+	targetDate.addMonths(n);
+	setCalendar(event, 0, name);
+}
+
+function addYears(event, n) {
+	targetDate.addYears(n);
+	setCalendar(event, 0);
+}
+
+function setTargetDate(event, link) {
+	if (link.date != null) {
+		targetDate = new Date(Date.parse(link.date));
+		setCalendar(event, 1, this.formName);
+
+		mm = String(targetDate.getMonth() + 1);
+		dd = String(targetDate.getDate());
+		yy = String(targetDate.getYear());
+
+		if (dd.length == 1) dd = '0' + dd;
+		if (mm.length == 1) mm = '0' + mm;
+
+		if (this.formName != null && this.formName != ''){
+			var dd = document.getElementById(this.formName + '_day').value = dd;;
+			var dm = document.getElementById(this.formName + '_month').value = mm;
+			var dy = document.getElementById(this.formName + '_year').value = yy;
+		}
+
+		hideCalendar(this.formName);
+	}
+}
+
+function displayDate(event) {
+	var gsss;
+
+	gsss = formatDate(targetDate);
+	asss = gsss.split("/");
+
+	window.opener.document.mainform.month.value = Math.abs(asss[0]);
+	window.opener.document.mainform.date.value = Math.abs(asss[1]);
+	window.opener.document.mainform.year.value = Math.abs(asss[2]);
+}
+
+function formatDate() {
+	var mm, dd, yyyy;
+	mm = String(targetDate.getMonth() + 1);
+
+	while (mm.length < 2)
+		mm = "0" + mm;
+	dd = String(targetDate.getDate());
+
+	while (dd.length < 2)
+	dd = "0" + dd;
+
+	yyyy = String(targetDate.getFullYear());
+
+	while (yyyy.length < 4)
+		yyyy = "0" + yyyy;
+
+	return mm + "/" + dd + "/" + yyyy;
+}
+
+Date.prototype.monthNames = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+Date.prototype.savedDate  = null;
+Date.prototype.getMonthName = dateGetMonthName;
+Date.prototype.getDays      = dateGetDays;
+Date.prototype.addDays      = dateAddDays;
+Date.prototype.addMonths    = dateAddMonths;
+Date.prototype.addYears     = dateAddYears;
+
+function dateGetMonthName() {
+	return this.monthNames[this.getMonth()];
+}
+
+function dateGetDays() {
+	var tmpDate, d, m;
+
+	tmpDate = new Date(Date.parse(this));
+	m = tmpDate.getMonth();
+	d = 28;
+	do {
+		d++;
+		tmpDate.setDate(d);
+	} while (tmpDate.getMonth() == m);
+
+	return d - 1;
+}
+
+function dateAddDays(n) {
+	this.setDate(this.getDate() + n);
+	this.savedDate = this.getDate();
+}
+
+function dateAddMonths(n) {
+	if (this.savedDate == null)
+		this.savedDate = this.getDate();
+
+	this.setDate(1);
+	this.setMonth(this.getMonth() + n);
+	this.setDate(Math.min(this.savedDate, this.getDays()));
+}
+
+function dateAddYears(n) {
+	if (this.savedDate == null)
+		this.savedDate = this.getDate();
+
+	this.setDate(1);
+	this.setFullYear(this.getFullYear() + n);
+	this.setDate(Math.min(this.savedDate, this.getDays()));
+}
+
+function showCalendar(name) {
+
+	//if (this.calName != null)
+	//	this.calName.style.visibility = 'hidden';
+
+	var e = document.getElementById('cal_' + name);
+	this.calName = e;
+	this.formName = name;
+
+	if (e.style.visibility == 'visible')
+		e.style.visibility = 'hidden';
+	else
+		e.style.visibility = 'visible';
+}
+
+function hideCalendar(name) {
+	var e = document.getElementById('cal_' + name);
+	e.style.visibility = 'hidden';
+}
+-->
+</script> 
+<input name="{NAME}" type="hidden" value="">
+	<!-- BEGIN form_year -->
+	<select name="{NAME}_year" {PARAMS}>
+		<!-- BEGIN form_year_row -->
+		<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+		<!-- END form_year_row -->
+	</select>
+	<!-- END form_year -->
+	<!-- BEGIN form_month -->
+	<select name="{NAME}_month" {PARAMS}>
+		<!-- BEGIN form_month_row -->
+		<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+		<!-- END form_month_row -->
+	</select>
+	<!-- END form_month -->
+	<!-- BEGIN form_day -->
+	<select name="{NAME}_day" {PARAMS}>
+		<!-- BEGIN form_day_row -->
+		<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+		<!-- END form_day_row -->
+	</select>
+	<!-- END form_day -->		
+<div id="cal_{NAME}" style="position:absolute; z-index:1; visibility:hidden;"> 
+<img src="img/0.gif" width="1" height="18">
+  <table border="0" cellpadding="0" cellspacing="0"> 
+    <tr>
+	  <td><table width="100%" border="0" cellpadding="3" cellspacing="0"> 
+      <td class="tbl_blk"><a href="javascript:void(0)" title="Previous month" onClick="addMonths(event, -1, '{NAME}'); return false;">&laquo;&laquo;</a></td> 
+      <td class="tbl_blk" width="100%" align="center" id="calendarHeader_{NAME}">&nbsp;</td> 
+      <td class="tbl_blk" align="right"><a href="javascript:void(0)" title="Next month" onClick="addMonths(event, 1, '{NAME}'); return false;">&raquo;&raquo;</a></td> 
+  </table></td>
+    </tr> 
+    <tr> 
+      <td><table border="0" cellpadding="3" cellspacing="1" class="tbl_blk"> 
+          <tr> 
+            <td class="cal_td" id="cal_days">Su</td> 
+            <td class="cal_td" id="cal_days">Mo</td> 
+            <td class="cal_td" id="cal_days">Tu</td> 
+            <td class="cal_td" id="cal_days">We</td> 
+            <td class="cal_td" id="cal_days">Th</td> 
+            <td class="cal_td" id="cal_days">Fr</td> 
+            <td class="cal_td" id="cal_days">Sa</td> 
+          </tr> 
+        </table> 
+        <table border="0" cellpadding="3" cellspacing="1" id="calendar_{NAME}" class="tbl_blk"> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+          <tr> 
+            <td class="cal_td" id="cal_hday"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+            <td class="cal_td"><a href="" onClick="setTargetDate(event, this); return false;">&nbsp;</a></td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+  </table><script language="javascript">setCalendar(event, null, '{NAME}');</script></div> 
+<a href="javascript:void(0);" onClick="showCalendar('{NAME}');"><img src="img/calendarwhite.gif" width="22" height="18" border="0" align="absmiddle"></a>
+<!-- END form -->

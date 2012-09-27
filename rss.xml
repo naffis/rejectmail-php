@@ -1,0 +1,21 @@
+	<rss version="2.0">
+	<channel>
+<title> Message list for test@mail.xxx </title>
+	<link>
+server2003/projects/rejectmail/mailbox.php?email_name=test&email_domain=mail.xxx&action=makeRSS
+</link>
+<description> Account checked 12 times</description>
+	<item>
+<title> 2 </title>
+<description> Date :2005-04-18 19:44:01 Subject : 6 </description>
+<pubDate> 2005-04-18 19:44:01</pubDate>
+</item>
+	<item>
+<title> gis2002@inbox.ru </title>
+	<description>
+ Date :2005-04-18 19:33:52 Subject : Test Subject... 
+</description>
+<pubDate> 2005-04-18 19:33:52</pubDate>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,115 @@
+<!-- BEGIN js -->
+<script language="JavaScript">
+<!--
+var x, y;
+x=0; y=0;
+//self.name = 'opener';
+var wnd = window.open(
+'',
+'debug',
+'height=10,width=150,screenX="+x+",left="+x+",screenY="+y+",top="+y+",channelmode=0,dependent=0,directories=0,fullscreen=0,location=0,menubar=0,resizable=1,scrollbars=1,status=0,toolbar=0'
+);
+wnd.document.open();
+wnd.document.write('{TEXT}');
+wnd.document.close();
+-->
+</script>
+<!-- END js -->
+<!-- BEGIN win -->
+<html>
+<head>
+<title>DEBUG</title>
+<style type="text/css">
+body,table,td {font-size: 11px; font-family:Verdana; color:#000000;}
+</style>
+<script language="JavaScript" type="text/JavaScript" src="<<<ROOT>>>func.js"></script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<dontdelete>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+Script execute time: <b>{EXEC_TIME}</b> ms
+</td></tr></table>
+
+<!-- BEGIN debug -->
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#000000">
+<table border="0" cellpadding="3" cellspacing="1" width="100%">
+<!-- BEGIN debug_category -->
+<tr><td colspan="3" align="center" bgcolor="#{COLOR}">{NAME}</td></tr>
+<!-- BEGIN debug_item -->
+<tr><td width="10%" align="right" valign="top" bgcolor="#FFFFFF">{LINE}</td>
+<td width="20%" valign="top" bgcolor="#FFFFFF">{NAME}</td>
+<td bgcolor="#FFFFFF">{VALUE}</td></tr>
+<!-- END debug_item -->
+<!-- END debug_category -->
+</table>
+</td></tr></table>
+<!-- END debug -->
+
+<!-- BEGIN sql -->
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#000000">
+<table border="0" cellpadding="3" cellspacing="1" width="100%">
+<!-- BEGIN sql_category -->
+<tr><td colspan="2" align="center" bgcolor="#{COLOR}">{NAME}</td></tr>
+<!-- BEGIN sql_item -->
+<tr><td valign="top" bgcolor="#FFFFFF">
+	{NAME}
+	<!-- BEGIN sql_error --><br><font color="#FF0000">{ERROR}</font><!-- END sql_error -->
+</td>
+<td width="10%" align="right" bgcolor="#FFFFFF" nowrap>{VALUE} ms</td></tr>
+<!-- END sql_item -->
+<!-- END sql_category -->
+</table>
+</td></tr></table>
+<!-- END sql -->
+
+<!-- BEGIN data -->
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#000000">
+<table border="0" cellpadding="3" cellspacing="1" width="100%">
+<!-- BEGIN data_category -->
+<tr><td colspan="3" align="center" bgcolor="#{COLOR}">{NAME}</td></tr>
+<!-- BEGIN data_item -->
+<tr><td width="10%" valign="top" bgcolor="#FFFFFF">
+	{ACTION}
+</td>
+  <td width="20%" bgcolor="#FFFFFF" nowrap>{PARAMS}</td>
+  <td bgcolor="#FFFFFF" nowrap>{REZ}</td>
+</tr>
+<!-- END data_item -->
+<!-- END data_category -->
+</table>
+</td></tr></table>
+<!-- END data -->
+
+<!-- BEGIN variable -->
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#000000">
+<table border="0" cellpadding="3" cellspacing="1" width="100%">
+<!-- BEGIN variable_category -->
+<tr><td colspan="2" align="center" bgcolor="#{COLOR}">{NAME}</td></tr>
+<!-- BEGIN variable_item -->
+<tr><td width="20%" valign="top" bgcolor="#FFFFFF">{NAME}</td>
+<td bgcolor="#FFFFFF">{VALUE}</td></tr>
+<!-- END variable_item -->
+<!-- END variable_category -->
+</table>
+</td></tr></table>
+<!-- END variable -->
+<dontdelete> 
+<br>
+<!-- BEGIN old_debug -->
+<table border="0" cellpadding="5" cellspacing="1" width="100%" bgcolor="#000000">
+<tr><td bgcolor="#A4B9BD"><strong>PREVIOUS PAGE DEBUGGER</strong><BR>{OLD_DEBUG}</td></tr>
+</table>
+<!-- END old_debug -->
+
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td align="center">
+<input type=button onclick="window.close();" value="CLOSE">
+</td></tr></table>
+</body>
+</html>
+<!-- END win -->

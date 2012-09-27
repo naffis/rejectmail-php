@@ -1,0 +1,89 @@
+<!-- BEGIN update -->
+<input type="hidden" name="{IMG_NAME}" value="">
+<table width="100%"  border="0" cellpadding="3"  cellspacing="1" bgcolor="#C3C3C3">
+        <tr><td align="center" valign="top" rowspan=100  class="td_fr" ><img src="{ORIGINAL_THUMBNAIL_SRC}?{TIMESTAMP}" {ORIGINAL_THUMBNAIL_INFO} border="1"><br><br>
+            <img src="img/main/b_delete.gif" width="14" height="18"><input type="checkbox" name="{IMAGE_FILE_DELETE}" value="checkbox">
+check to delete <br></td>
+          <td colspan="4" class="td_fb"><b>Original</b></td>
+        </tr>
+        <tr>
+          <td class="td_fl" width="20%">edit</td>
+          <td colspan="3" class="td_fr"><a href="javascript:void(0);" onClick="window.open('{EDITORS_PATH}image_editor.php?type={IMAGE_NAME}&id={ID}&key={KEY}','image_editor','scrollbars=1,status=1,resizable,width=800,height=600');">image editor</a> </td>
+        </tr>
+        <tr>
+          <td class="td_fl">change</td>
+          <td colspan="3"  class="td_fr"><input name="{NAME}" type="file" style="width : 95%"></td>
+        </tr>
+        
+        <tr>
+          <td class="td_fl">file name</td>
+          <td colspan="3"  class="td_fr">{IMAGE_SRC} </td>
+        </tr>
+        <tr>
+          <td class="td_fl">image size</td>
+          <td  class="td_fr" colspan="3">{IMAGE_W} x {IMAGE_H}</td>
+        </tr>
+        <tr><td class="td_fl">image type </td>
+          <td  class="td_fr">{IMAGE_TYPE} </td><td  class="td_fl" width="20%">file size</td>
+          <td  class="td_fr">{IMAGE_FILE_SIZE} </td>
+        </tr>
+        
+        <tr>
+          <td colspan="4" class="td_fb"><b>Thumbnail(s)</b></td>
+        </tr>
+		<!-- BEGIN update_thumbnail -->
+        <tr>
+          <td class="td_fl">{THUMBNAIL_NAME}</td>
+          <td colspan="3"  class="td_fr">{THUMBNAIL_W} x {THUMBNAIL_H} | <a href="{THUMBNAIL_FILE_NAME}" target="_blank">view</a> | <a href="{THUMB_EDIT_HREF}">edit</a> </td>
+        </tr>
+		<!-- END update_thumbnail -->
+        <tr>
+          <td colspan="4" class="td_fl"><input name="{APPLY_TO_THUMBNAILS}" type="checkbox" value="checkbox" checked>
+            apply changes to thumbnails</td>
+        </tr>
+    </table>
+<!-- END update -->
+
+
+
+
+<!-- BEGIN new -->
+<style type="text/css">
+<!--
+.td_iff {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+.td_iffh {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #CCCCCC;
+	font-weight: bold;
+}
+.td_iffl {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #E9E9E9;
+}
+-->
+</style>
+<input type="hidden" name="{IMG_NAME}" value="">
+<table width="100%"  border="0" cellpadding="3"  cellspacing="1" bgcolor="#C3C3C3">
+        <tr>
+          <td width="30%" valign="top" class="td_fl">Original image location </td>
+          <td  class="td_fr"><input name="{NAME}" type="file">
+		  <br>
+		  if you not enter thumbnails images they they will be created automatically
+          </td>
+        </tr>
+		<!-- BEGIN new_thumbnail -->
+        <tr>
+          <td class="td_fl">{THUMBNAIL_NAME} ({THUMBNAIL_WIDTH}x{THUMBNAIL_HEIGHT}) </td>
+          <td  class="td_fr"><input name="{NAME}" type="file">
+          </td>
+        </tr>
+		<!-- END new_thumbnail -->
+    </table>
+<!-- END new -->
+

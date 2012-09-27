@@ -1,0 +1,48 @@
+/* CSS Document */
+body { background-color: #D8DBDE;
+	   margin: 0px; 
+	   padding: 0px}
+td, p, body {font: 11px Tahoma}	  
+.copy { background-image: url(../img/f_bgcopy.gif);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		color: #2C649B; 
+		font-weight: bold}
+a:link, a:active, a:visited {color: #2C649B; text-decoration: none}
+a:hover {color: #2C649B; text-decoration: underline}
+a.f:link, a.f:active, a.f:visited {color: #FB6705; text-decoration: none}
+a.f:hover {color: #FB6705; text-decoration: underline}
+.top { background-image: url(../img/bg_ramka.gif); 
+	   background-repeat: repeat-x; 
+	   background-position: top}
+.bottom { background-image: url(../img/bg_ramka.gif); 
+	      background-repeat: repeat-x; 
+	      background-position: bottom}
+.left { background-image: url(../img/bg_ramka.gif); 
+	    background-repeat: repeat-y; 
+	    background-position: left}
+.right { background-image: url(../img/bg_ramka.gif); 
+	     background-repeat: repeat-y; 
+	     background-position: right}
+.head { color: #2C649B;
+	    font-weight: bold}
+.txt { color: #505050}
+a.or:link, a.or:active, a.or:visited { color: #FB6705; text-decoration: none; font-weight: bold}
+a.or:hover { text-decoration: underline; color: #FA924D;font-weight: bold}
+.otst_f { padding-left: 9px}   
+.otst_f2 { padding-top: 9px; 
+		   padding-bottom: 12px; 
+		   color: #363636}   
+.ot { padding-left: 12px} 
+.gr	{ color: #363636}
+.name { color: #FB6705;
+	    font-weight: bold}
+.nn { background-color: #FFD9BF; color: #2C649B; font-weight: bold; padding-left: 12px}
+.bgmail { background-color: #F7F9FB}
+.send { height: 20px; border: 1px solid #5280AE; background-color: #FFFFFF}
+.mail { width: 100%; height: 200px; border: 1px solid #F5F9FD; background-color: #F5F9FD}
+.bg_a { background-color: #FFD9BF; text-align: center}
+.bg_noa { background-color: #ECF2F8; text-align: center;font-weight: bold}
+
+
+

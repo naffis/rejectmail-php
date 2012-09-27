@@ -1,0 +1,169 @@
+<!-- BEGIN sendmail -->
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+<script language="Javascript">
+var bSubmit = 1;
+</script>
+
+<form action="sendmail.php" method="post"onSubmit="return (bSubmit || checkForm(this,{JS_CHECK}))" enctype="multipart/form-data"> 
+  <tr>
+    <td width="2"><img src="img/0.gif" width="2" height="1"></td>
+    <td width="2"><img src="img/0.gif" width="2" height="1"></td>
+    <td width="1" valign="bottom"><img src="img/middle_left.gif" width="1" height="116"></td>
+    <td width="772" valign="top"><table width="772" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41" ><img src="img/0.gif" width="41" height="1"></td>
+        <td width="100%" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="24" colspan="2"><img src="img/h_send_mail.gif" width="59" height="10"></td>
+          </tr>
+          <tr>
+            <td colspan="2" bgcolor="#2C649B"><img src="img/0.gif" width="1" height="3"></td>
+          </tr>
+          <tr>
+            <td valign="top" width="514">
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2" class="head ot"><img src="img/0.gif" width="1" height="10"></td>
+  </tr>
+  <tr>
+    <td height="24" colspan="2" >&nbsp;&nbsp;&nbsp;&nbsp;Separate multiple emails with commas</td>
+    </tr>
+  <tr>   
+  <tr>
+    <td height="24" class="head ot">From:</td>
+    <td width="100%" class="gr ot"><table width="1%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>{FIELD_EMAIL_FROM}  </td>
+        <td><img src="img/sobaka2.gif" width="20" height="20" hspace="2"></td>
+        <td>{FIELD_EMAIL_DOMAIN}</td>               
+      </tr>
+    </table></td>
+    </tr>
+  <tr>
+    <td width="64" height="24" class="head ot">To:</td>
+    <td width="100%" class="gr ot">{FIELD_EMAIL_TO}</td>
+  </tr>
+  <tr>
+    <td width="64" height="24" class="head ot">CC:</td>
+    <td width="100%" class="gr ot">{FIELD_EMAIL_CC}</td>
+  </tr>
+  <tr>
+    <td width="64" height="24" class="head ot">Subject:</td>
+    <td width="100%" class="gr ot">{FIELD_EMAIL_SUBJECT}</td>
+  </tr>
+  <tr>
+    <td width="64" height="24" class="head ot" valign="top">Verification:</td>
+    <td width="100%" class="gr ot">
+    	<input type="text" name="spam_checker" class="send" style="width:368px"><br>
+    	<img src="generate.php?<<<RANDOM>>>">
+    </td>
+  </tr>  
+  <tr>
+    <td colspan="2" class="head ot"><img src="img/0.gif" width="1" height="10"></td>
+    </tr>
+  <tr>
+    <td colspan="2"><table width="438"  border="0" cellpadding="0" cellspacing="1" bgcolor="#517FAD">
+  <tr>
+    <td><table width="436"  border="0" cellpadding="0" cellspacing="0" bgcolor="#F5F9FD">
+      <tr>
+        <td background="img/bg_message.gif"><img src="img/message.gif" width="71" height="19"></td>
+        <td align="right" background="img/bg_message.gif">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">{FIELD_EMAIL_BODY}</td>
+      </tr>     
+    </table></td>
+  </tr>
+ 
+</table><br>
+<input name="rejectmail" value="1" type="hidden">
+<input name="send" type="image" src="img/b_send_mail.gif" value="1" align="right" width="105" height="30" border="0" hspace="72" onclick="bSubmit = 0"><br><br><br>
+      </td>
+      
+
+    </tr>
+
+</table>
+            <td valign="top"><table width="1" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2" background="img/att_head_bg.gif"><img src="img/att_head_1.gif" width="161" height="39"></td>
+                <td><img src="img/att_head_2.gif" width="17" height="39"></td>
+              </tr>
+              <tr>
+                <td width="13" valign="top" background="img/att_bgleft.gif"><img src="img/att_left.gif" width="13" height="101"></td>
+                <td width="148" align="center" valign="top" bgcolor="#FCFDFE" style="padding-top:6px"><table width="150"  border="0" cellspacing="4" cellpadding="0">                  
+                                      	  
+                	<tr> 
+                    	<td colspan="2" valign="top"><input name="file" type="file" class="send" style="width:100%; font-size:9px"></td>
+                          </tr>
+                          <tr> 
+                            <td colspan="2" valign="top"><input name="file2" type="file" class="send" style="width:140px;  font-size:9px"></td>                            
+                          </tr>					
+<!-- END sendmail --> 
+<!-- BEGIN AATTACHMENTS -->                           
+<!-- BEGIN AATTACHMENTS_row -->
+                          <tr> 
+                            <td>{FILENAME_OBREZ}</td>                            
+                            <td valign="top"><A href="sendmail.php?delete=1&delete_key={KEY}"> <img type="image" src="img/del.gif" width="38" height="16" border="0"></a></td>
+                          </tr>
+<!-- END AATTACHMENTS_row -->
+<!-- END AATTACHMENTS -->
+<!-- BEGIN sendmail_part2 --><!-- {FIELD_EMAIL_BODY}-->                     
+                        </table>
+                        <br> <input name="imageField3" type="image" src="img/b_attach.gif" width="63" height="19" border="0"></td>
+                        
+                        
+                      
+                <td width="17" align="right" valign="top" background="img/att_bgright.gif"><img src="img/att_right.gif" width="17" height="101"></td>
+              </tr>
+              <tr>
+                <td colspan="2" background="img/att_bottom_bg.gif"><img src="img/att_bottom_1.gif" width="161" height="49"></td>
+                <td><img src="img/att_bottom_2.gif" width="17" height="49"></td>
+              </tr>
+            </table></td>
+          </tr>         
+        </table></td>
+
+        <td width="41"><img src="img/0.gif" width="43" height="1"></td>
+        </tr>
+    </table></td>
+    <td width="1" valign="top"><img src="img/middle_right.gif" width="1" height="96"></td>
+    <td width="2"><img src="img/0.gif" width="2" height="1"></td>
+  </tr>
+</form>
+</table>
+<!-- END sendmail_part2 -->
+<!-- BEGIN getmail --> 
+<table width="471" border="0" cellspacing="0" cellpadding="0">
+<form method="POST" action="mailbox.php">
+          <tr>
+            <td width="5" valign="top"><img src="img/u_1.gif" width="5" height="5"></td>
+            <td class="top"><img src="img/0.gif" width="1" height="1"></td>
+            <td width="5" align="right" valign="top"><img src="img/u_2.gif" width="5" height="5"></td>
+          </tr>
+          <tr>
+            <td width="5" class="left"><img src="img/0.gif" width="1" height="108"></td>
+            <td bgcolor="#E5ECF3"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr valign="middle">
+                <td width="1"><img src="img/0.gif" height="1" width="15"></td>
+                <td width="1">{FIELD_EMAIL_NAME}</td>
+                <td width="1"><img src="img/sobaka.gif" width="25" height="24" hspace="7"></td>
+                <td>
+                {FIELD_EMAIL_DOMAIN}
+                <input type="hidden" name="email_order" value="email_date DESC ">                
+                 </td>  
+                
+                <td><input name="imageField" type="image" src="img/b_check.gif" width="105" height="30" border="0" onclick="bSubmit=1"></td>
+              </tr>
+            </table></td>
+            <td width="5" class="right"><img src="img/0.gif" width="1" height="1"></td>
+          </tr>
+          <tr>
+            <td width="5" valign="bottom"><img src="img/u_3.gif" width="5" height="5"></td>
+            <td class="bottom"><img src="img/0.gif" width="1" height="1"></td>
+            <td width="5" align="right" valign="bottom"><img src="img/u_4.gif" width="5" height="5"></td>
+          </tr>
+</form>          
+        </table>
+      
+<!-- END getmail --> 

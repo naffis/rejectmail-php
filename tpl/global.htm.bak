@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="2" rowspan="2"><img src="img/top_left.gif" width="2" height="102"></td>
+    <td colspan="3"><img src="img/0.gif" width="1" height="1"></td>
+    <td width="2" rowspan="2"><img src="img/0.gif" width="2" height="1"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="259" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td bgcolor="#2C649B"><img src="img/0.gif" width="1" height="9"></td>
+      </tr>
+      <tr>
+        <td><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td bgcolor="#2C649B"><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="img/0.gif" width="1" height="13"><br><img src="img/logo.gif" width="213" height="45" hspace="19"></td>
+      </tr>
+      <tr>
+        <td><img src="img/logo_bottom.gif" width="259" height="32"></td>
+      </tr>
+    </table></td>
+    <td width="7" valign="top"><img src="img/top_middle.gif" width="7" height="101"></td>
+    <td valign="top"><table width="508" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="2" bgcolor="#FB6705"><img src="img/0.gif" width="1" height="6"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td colspan="2" bgcolor="#2C649B"><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td valign="top" bgcolor="#95B1CD"><a href="#"><img src="img/banner.gif" width="468" height="60" hspace="17" vspace="10" border="0"></a></td>
+        <td width="1" rowspan="2"><img src="img/top_right.gif" width="1" height="84"></td>
+      </tr>
+      <tr>
+        <td valign="top" bgcolor="#2C649B"><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+    </table>
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="100%" align="right" valign="top"><img src="img/m_left.gif" width="30" height="30"></td>
+          <td valign="top"><a href="#"><img src="img/m_about.gif" width="103" height="24" border="0"></a><br>
+          <img src="img/m_about_bottom.gif" width="103" height="6"></td>
+          <td valign="top"><a href="#"><img src="img/m_send.gif" width="105" height="24" border="0"></a><br>
+          <img src="img/m_send_bottom.gif" width="105" height="6"></td>
+          <td valign="top"><a href="#"><img src="img/m_faq.gif" width="75" height="24" border="0"></a><br>
+          <img src="img/m_faq_bottom.gif" width="75" height="6"></td>
+          <td width="1"><img src="img/m_right.gif" width="1" height="30"></td>
+        </tr>
+      </table></td>
+  </tr>
+ </table>
+{PAGE}{ERROR}
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="2"><img src="img/0.gif" width="2" height="1"></td>
+    <td width="1" valign="bottom"><img src="img/f_left.gif" width="1" height="43"></td>
+    <td valign="bottom"><table width="554" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td bgcolor="#A6BED5"><img src="img/0.gif" width="1" height="1"></td>
+        </tr>
+      <tr>
+        <td align="right" valign="bottom" bgcolor="#E5ECF3"><table width="200" border="0" cellspacing="0" cellpadding="2">
+          <tr>
+            <td><img src="img/f_bulet.gif" width="8" height="8" hspace="6"></td>
+            <td><a href="#">FAQ</a></td>
+            <td><img src="img/f_bulet.gif" width="8" height="8" hspace="6"></td>
+            <td><a href="#">blog</a></td>
+            <td><img src="img/f_bulet.gif" width="8" height="8" hspace="6"></td>
+            <td nowrap><a href="#">about us</a> </td>
+            <td><img src="img/f_bulet.gif" width="8" height="8" hspace="6"></td>
+            <td nowrap><a href="#">terms of service</a> </td>
+            <td><img src="img/f_bulet.gif" width="8" height="8" hspace="6"></td>
+            <td><img src="img/0.gif" width="4" height="1"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td bgcolor="#2C649B"><img src="img/0.gif" width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td><img src="img/0.gif" width="1" height="2"></td>
+      </tr>
+      <tr>
+        <td bgcolor="#2C649B"><img src="img/0.gif" width="1" height="3"></td>
+      </tr>
+    </table></td>
+    <td width="7" valign="bottom"><img src="img/f_middle.gif" width="7" height="43"></td>
+    <td valign="bottom"><table width="212" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td rowspan="2" align="right"><img src="img/f_ugl.gif" width="15" height="37"></td>
+        <td align="right" valign="top"><img src="img/f_top.gif" width="197" height="8"></td>
+      </tr>
+      <tr>
+        <td height="29" align="center" class="copy">Copyright &copy; 2005 RejectMail </td>
+      </tr>
+      <tr>
+        <td colspan="2" bgcolor="#FB6705"><img src="img/0.gif" width="1" height="6"></td>
+      </tr>
+    </table></td>
+    <td width="2" valign="bottom"><img src="img/f_right.gif" width="2" height="36"></td>
+  </tr>
+  <tr>
+    <td colspan="6"><img src="img/0.gif" width="1" height="2"></td>
+  </tr>
+</table>
+</body>

@@ -1,0 +1,119 @@
+<!-- BEGIN new -->
+<input name="{NAME}" type="hidden" value="">
+<style type="text/css">
+<!--
+.td_iff {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+.td_iffh {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #CCCCCC;
+	font-weight: bold;
+}
+.td_iffl {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #E9E9E9;
+}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+function chooseFile() {
+	window.open('editors/ftp_file_chooser/index.php?elem_back=choose','file_chooser','scrollbars=1,status=1,resizable,width=400,height=600');
+}
+</script>
+<table width="400"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="82%"><table width="100%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#999999">
+        <tr>
+          <td width="50%" valign="top" class="td_iffl">Original file location<br>
+          Max file size: {MAX_SIZE_FORMATTED} </td>
+          <td class="td_iff"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr> 
+                <td class="td_iff"><input name="{NAME}" type="file" size="10">
+                  (get file from your disk)</td>
+              </tr>
+              <tr> 
+                <td class="td_iff">
+				<input name="ftp_{NAME}" type=text id="ftp_{NAME}" size="10">
+				<input name="choose" type="button" id="choose_btn" onClick="window.open('editors/ftp_file_chooser/index.php?elem_back=ftp_{NAME}','file_chooser','scrollbars=1,status=1,resizable,width=400,height=600');" value="Select file">    
+				(get file from ftp on the server)</td>
+              </tr>
+            </table> </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<!-- END new -->
+
+
+<!-- BEGIN update -->
+<input name="{NAME}" type="hidden" value="">
+<style type="text/css">
+<!--
+.td_iff {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+.td_iffh {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #CCCCCC;
+	font-weight: bold;
+}
+.td_iffl {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #E9E9E9;
+}
+-->
+</style>
+<table width="100%"  border="0" cellspacing="0" cellpadding="3">
+  <tr>
+    <td valign="top"><table width="100%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#999999">
+        <tr>
+          <td class="td_iffl">change<br>
+          Max file size: {MAX_SIZE_FORMATTED} </td>
+          <td class="td_iff"><table width="100%" border="1" cellspacing="0" cellpadding="2">
+              <tr> 
+                <td class="td_iff"><input name="{NAME}" type="file" size="10">
+                  (get file from your disk)</td>
+              </tr>
+              <tr> 
+                <td class="td_iff">
+				<input name="ftp_{NAME}" type=text id="ftp_{NAME}" size="10"><input name="choose" type="button" id="choose_btn" onClick="window.open('editors/ftp_file_chooser/index.php?elem_back=ftp_{NAME}','file_chooser','scrollbars=1,status=1,resizable,width=400,height=600');" value="Select file">    
+				
+				(get file from ftp on the server)</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="td_iffl">delete</td>
+          <td class="td_iff"><input type="checkbox" name="{FILE_DELETE}" value="1">
+            check to delete </td>
+        </tr>
+        <tr>
+          <td class="td_iffl">file name</td>
+          <td class="td_iff">/{FILE_NAME} | <a href="{FILE_PATH}" target="_blank">download</a></td>
+        </tr>
+		<!-- BEGIN update_file_type -->
+        <tr>
+          <td class="td_iffl">file type </td>
+          <td class="td_iff">{FILE_TYPE} </td>
+        </tr>
+		<!-- END update_file_type -->
+        <tr>
+          <td class="td_iffl">file size</td>
+          <td class="td_iff">{FILE_SIZE}</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<!-- END update -->
+<!-- BEGIN view -->
+<a href="{LINK}">{FILE_NAME}, {SIZE}</a> 
+<!-- END view -->
